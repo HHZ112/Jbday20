@@ -30,7 +30,7 @@
       position: relative;
     }
 
-    /* Direct MP4 Video Background (No YouTube Ads) */
+    /* Mobile-Optimized Video Background */
     #bg-video {
       position: fixed;
       top: 50%;
@@ -241,8 +241,8 @@
 </head>
 <body>
 
-  <!-- Direct Clean Video Background -->
-  <video id="bg-video" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1200">
+  <!-- Video Element configured for Mobile Autoplay -->
+  <video id="bg-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1200">
     <source src="https://assets.mixkit.co/videos/preview/mixkit-glitter-particles-floating-in-the-dark-41551-large.mp4" type="video/mp4">
   </video>
   <div class="overlay"></div>
@@ -313,7 +313,7 @@
           <rect x="30" y="120" width="140" height="50" rx="10" fill="#f472b6"/>
           <rect x="45" y="85" width="110" height="40" rx="8" fill="#f48fb1"/>
           <rect x="60" y="55" width="80" height="35" rx="6" fill="#e9d5ff"/>
-          <path d="M 30 125 Q 40 135 50 125 Q 60 135 70 125 Q 80 135 90 125 Q 100 135 110 125 Q 120 135 130 125 Q 140 135 170 125 L 170 120 L 30 120 Z" fill="#fff" opacity="0.8"/>
+          <path d="M 30 125 Q 40 135 50 125 Q 60 135 70 125 Q 80 135 90 125 Q 100 135 110 125 Q 120 135 130 125 Q 140 135 150 125 Q 160 135 170 125 L 170 120 L 30 120 Z" fill="#fff" opacity="0.8"/>
           <path d="M 45 90 Q 55 98 65 90 Q 75 98 85 90 Q 95 98 105 90 Q 115 98 125 90 Q 135 98 145 90 L 145 85 L 45 85 Z" fill="#fff" opacity="0.8"/>
           <text x="78" y="50" font-family="'Great Vibes', cursive" font-size="28" fill="#7e22ce">2</text>
           <text x="105" y="50" font-family="'Great Vibes', cursive" font-size="28" fill="#7e22ce">0</text>
@@ -397,6 +397,14 @@
       document.getElementById('blow-btn-wrapper').style.display = 'none';
       document.getElementById('cake-back-btn').style.display = 'block';
     }
+
+    // Force autoplay for mobile browsers
+    document.addEventListener('DOMContentLoaded', () => {
+      const vid = document.getElementById('bg-video');
+      if (vid) {
+        vid.play().catch(() => {});
+      }
+    });
   </script>
 </body>
 </html>

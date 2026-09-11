@@ -30,27 +30,18 @@
       position: relative;
     }
 
-    /* Video Background Container (YouTube Embed) */
-    .video-background {
+    /* Direct MP4 Video Background (No YouTube Ads) */
+    #bg-video {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -2;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .video-background iframe {
-      position: absolute;
       top: 50%;
       left: 50%;
-      width: 100vw;
-      height: 56.25vw;
-      min-height: 100vh;
-      min-width: 177.77vh;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -2;
       transform: translate(-50%, -50%);
+      object-fit: cover;
     }
 
     .overlay {
@@ -250,15 +241,10 @@
 </head>
 <body>
 
-  <!-- YouTube Video Background -->
-  <div class="video-background">
-    <iframe 
-      src="https://www.youtube.com/embed/eNzef8x1BWg?autoplay=1&mute=1&controls=0&loop=1&playlist=eNzef8x1BWg&playsinline=1" 
-      frameborder="0" 
-      allow="autoplay; encrypted-media" 
-      allowfullscreen>
-    </iframe>
-  </div>
+  <!-- Direct Clean Video Background -->
+  <video id="bg-video" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1200">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-glitter-particles-floating-in-the-dark-41551-large.mp4" type="video/mp4">
+  </video>
   <div class="overlay"></div>
 
   <div class="container">
@@ -327,7 +313,7 @@
           <rect x="30" y="120" width="140" height="50" rx="10" fill="#f472b6"/>
           <rect x="45" y="85" width="110" height="40" rx="8" fill="#f48fb1"/>
           <rect x="60" y="55" width="80" height="35" rx="6" fill="#e9d5ff"/>
-          <path d="M 30 125 Q 40 135 50 125 Q 60 135 70 125 Q 80 135 90 125 Q 100 135 110 125 Q 120 135 130 125 Q 140 135 150 125 Q 160 135 170 125 L 170 120 L 30 120 Z" fill="#fff" opacity="0.8"/>
+          <path d="M 30 125 Q 40 135 50 125 Q 60 135 70 125 Q 80 135 90 125 Q 100 135 110 125 Q 120 135 130 125 Q 140 135 170 125 L 170 120 L 30 120 Z" fill="#fff" opacity="0.8"/>
           <path d="M 45 90 Q 55 98 65 90 Q 75 98 85 90 Q 95 98 105 90 Q 115 98 125 90 Q 135 98 145 90 L 145 85 L 45 85 Z" fill="#fff" opacity="0.8"/>
           <text x="78" y="50" font-family="'Great Vibes', cursive" font-size="28" fill="#7e22ce">2</text>
           <text x="105" y="50" font-family="'Great Vibes', cursive" font-size="28" fill="#7e22ce">0</text>
